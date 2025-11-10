@@ -2436,11 +2436,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d025e8b20db3e5f4f98d80ba340d537e, type: 2}
     - target: {fileID: 919132149155446097, guid: e2dd00f8cbfd5984e969478597fc6723, type: 3}
       propertyPath: m_Name
-      value: ENEMY
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e2dd00f8cbfd5984e969478597fc6723, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e2dd00f8cbfd5984e969478597fc6723, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: e2dd00f8cbfd5984e969478597fc6723, type: 3}
       propertyPath: m_Controller

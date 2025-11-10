@@ -26,14 +26,12 @@ public class NavMeshController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)     
     {
+        if (other.name == "Hammer")
+        {
             Destroy(other.gameObject);
             Debug.Log("Hit");
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-            Destroy(other.gameObject);
-            Debug.Log("Hit");
+        }
+          
     }
 
     private void OnTriggerExit(Collider other)

@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("Chasing");
             agent.destination = Target.transform.position - Vector3.back;
+            if (agent.pathStatus == NavMeshPathStatus.PathComplete)
+                animator.SetTrigger("Attack");
         }
     }
 }
