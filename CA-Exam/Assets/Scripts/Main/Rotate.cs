@@ -7,13 +7,4 @@ public class Rotate : MonoBehaviour
     {
         transform.Rotate(Vector3.up, Time.deltaTime * 200);
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.name == "Player")
-        {
-            Destroy(gameObject);
-            Debug.Log("hit");
-        }
-    }
 }

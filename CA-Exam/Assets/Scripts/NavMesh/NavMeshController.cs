@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -25,19 +26,20 @@ public class NavMeshController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)     
     {
-        if (other.CompareTag("Sword"))
-        {
+            Destroy(other.gameObject);
             Debug.Log("Hit");
-        }
-        if (other.name == "Hammer")
-        {
-        }
     }
+
+    void OnTriggerStay(Collider other)
+    {
+            Destroy(other.gameObject);
+            Debug.Log("Hit");
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.name == "Target")
         {           
-            //edit here
         }
     }
 
