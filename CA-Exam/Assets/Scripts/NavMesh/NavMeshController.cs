@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class NavMeshController : MonoBehaviour
 {
@@ -24,14 +25,11 @@ public class NavMeshController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)     
+    private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Hammer")
-        {
-            Destroy(other.gameObject);
-            Debug.Log("Hit");
-        }
-          
+        SceneManager.LoadScene(1);
+
     }
 
     private void OnTriggerExit(Collider other)
