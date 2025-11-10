@@ -6,24 +6,31 @@ public class NavMeshController : MonoBehaviour
 {
     public GameObject Target;
     private NavMeshAgent agent;
+    public GameObject Sword;
+    Animator animator;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
 
         agent.destination = Target.transform.position;
+        if (agent.remainingDistance <= agent.stoppingDistance)
+            animator.SetBool("IsWalking", false);
 
     }
 
-    private void OnTriggerEnter(Collider other)      //if it hits the target
+    private void OnTriggerEnter(Collider other)     
     {
-        if (other.name == "Target")
+        if (other.CompareTag("Sword"))
         {
-            //edit here
+            Debug.Log("Hit");
+        }
+        if (other.name == "Hammer")
+        {
         }
     }
     private void OnTriggerExit(Collider other)

@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class RayCaster : MonoBehaviour
 {
-
- 
+    [SerializeField] GameObject target;
     private Camera cam;
+    [SerializeField] Animator animator;
+    
     void Start()
     {
         cam = Camera.main;
@@ -19,7 +20,8 @@ public class RayCaster : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.point);  //point is a position x,y,z  e.g. this.transform.position = hit.point
+                target.transform.position = hit.point;
+                animator.SetBool("IsWalking", true);
             }       
         }
     }

@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class PathController : MonoBehaviour
 {
-    [SerializeField]
-    public PathManager pathManager;
-
+    [SerializeField] public PathManager pathManager;
     List<Waypoint> thePath;
     Waypoint target;
-
     public float MoveSpeed;
     public float RotateSpeed;
-
     public Animator animator;
     bool isWalking;
 
@@ -21,13 +17,12 @@ public class PathController : MonoBehaviour
     void Start()
     {
         thePath = pathManager.GetPath();
-        if (thePath != null && thePath.Count > 0 )
+        if (thePath != null && thePath.Count > 0)
         {
             target = thePath[0];
         }
 
-        isWalking = false;
-        animator.SetBool("isWalking", isWalking);
+        isWalking = true;
     }
 
     void rotateTowardsTarget()
@@ -55,11 +50,7 @@ public class PathController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)
-        {
-            isWalking = !isWalking;
-            animator.SetBool("isWalking", isWalking);
-        }
+        animator.SetBool("isWalking", isWalking);
         if (isWalking)
         {
             rotateTowardsTarget();
@@ -69,7 +60,7 @@ public class PathController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name.Equals(""))
-        target = pathManager.GetNextTarget();
+        if (other.name.Equals(""))
+            target = pathManager.GetNextTarget();
     }
 }
